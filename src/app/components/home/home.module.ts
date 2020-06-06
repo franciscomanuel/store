@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { HomeComponent } from './components/home/home.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { HomeRoutingModule } from './home-routing.module';
-import {CommonModule} from '@angular/common';
+import { CommonModule } from '@angular/common';
+import { SharedModule } from '../../modules/shared/shared.module';
 
 @NgModule({
   exports: [
@@ -14,7 +15,8 @@ import {CommonModule} from '@angular/common';
   ],
   imports: [
     HomeRoutingModule,
-    CommonModule
+    CommonModule,
+    SharedModule
   ]
 })
 export class HomeModule {}
