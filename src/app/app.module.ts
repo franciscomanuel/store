@@ -4,27 +4,22 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductComponent } from './components/product/product.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { DemoComponent } from './components/demo/demo.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { HomeModule } from './components/home/home.module';
-import { ProductsComponent } from './components/products/products.component';
-import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { SharedModule } from './modules/shared/shared.module';
 import { CoreModule } from './modules/core/core.module';
+import {ProductModule} from './components/product/product.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductComponent,
     CardsComponent,
     DemoComponent,
     PageNotFoundComponent,
-    LayoutComponent,
-    ProductsComponent,
-    ProductDetailComponent
+    LayoutComponent
   ],
   imports: [
     BrowserModule,
@@ -32,12 +27,11 @@ import { CoreModule } from './modules/core/core.module';
     FormsModule,
     HomeModule,
     SharedModule,
-    CoreModule
+    CoreModule,
+    ProductModule
   ],
   providers: [],
-  exports: [
-    ProductComponent
-  ],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

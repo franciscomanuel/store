@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
-import {ProductsComponent} from './components/products/products.component';
+import {ProductsComponent} from './components/product/components/products/products.component';
 import {ContactComponent} from './components/contact/contact.component';
 import {DemoComponent} from './components/demo/demo.component';
 import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
-import {ProductDetailComponent} from './components/product-detail/product-detail.component';
+import {ProductDetailComponent} from './components/product/components/product-detail/product-detail.component';
 import {LayoutComponent} from './components/layout/layout.component';
 import {AdminGuard} from './guard/admin.guard';
 
@@ -25,11 +25,7 @@ const routes: Routes = [
       },
       {
         path: 'products',
-        component: ProductsComponent
-      },
-      {
-        path: 'products/:id',
-        component: ProductDetailComponent
+        loadChildren: () => import('./components/product/product.module').then(m => m.ProductModule)
       },
       {
         path: 'contact',
