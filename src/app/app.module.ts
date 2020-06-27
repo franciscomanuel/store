@@ -9,11 +9,14 @@ import { SharedModule } from './modules/shared/shared.module';
 import { CoreModule } from './modules/core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductsListComponent } from './components/admin/components/products-list/products-list.component';
+import {MaterialModule} from './modules/material/material.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent
+    LayoutComponent,
+    ProductsListComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     CoreModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MaterialModule
   ],
   providers: [],
   exports: [],
