@@ -7,8 +7,6 @@ import {FooterComponent} from './components/footer/footer.component';
 import {RouterModule} from '@angular/router';
 import {MaterialModule} from '../material/material.module';
 
-
-
 @NgModule({
   declarations: [
     ExponencialPipe,
