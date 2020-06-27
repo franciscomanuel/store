@@ -1,5 +1,5 @@
 <div class="product-grid">
-  <app-product *ngFor="let product of productsService.getAllProducts()"
+  <app-product *ngFor="let product of products"
                (productClicked)="clickProduct($event)"
                [product]="product">
   </app-product>

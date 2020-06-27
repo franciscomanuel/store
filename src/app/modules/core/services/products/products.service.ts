@@ -1,63 +1,25 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import {Observable} from 'rxjs';
 import {Product} from '../../../../product.model';
+import { environment } from '../../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
 
-  products: Product[] = [
-    {
-      id: '1',
-      image: 'assets/images/camiseta.png',
-      title: 'Camiseta',
-      price: 80000,
-      description: 'Descripcion Camiseta'
-    },
-    {
-      id: '2',
-      image: 'assets/images/hoodie.png',
-      title: 'Hoodie',
-      price: 80000,
-      description: 'Descripcion Hoodie'
-    },
-    {
-      id: '3',
-      image: 'assets/images/mug.png',
-      title: 'Mug',
-      price: 80000,
-      description: 'Descripcion Mug'
-    },
-    {
-      id: '4',
-      image: 'assets/images/pin.png',
-      title: 'Pin',
-      price: 80000,
-      description: 'Descripcion Pin'
-    },
-    {
-      id: '5',
-      image: 'assets/images/stickers1.png',
-      title: 'Stickers1',
-      price: 80000,
-      description: 'Descripcion Stickers1'
-    },
-    {
-      id: '6',
-      image: 'assets/images/stickers2.png',
-      title: 'Stickers2',
-      price: 80000,
-      description: 'Descripcion Stickers2'
-    }
-  ];
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
-
-  getAllProducts() {
-    return this.products;
+  getAllProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(`${environment.url_api}/products/`);
   }
 
-  getProductById(id) {
-    return this.products.find(product =>  product.id === id);
+  getProductById(id): Observable<Product> {
+    return this.http.get<Product>(`${environment.url_api}/products/${id}`);
+  }
+
+  createProduct(product: Product): Observable<Product> {
+    return this.http.post<Product>(`${environment.url_api}/products`, product);
   }
 }
