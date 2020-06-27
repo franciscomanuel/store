@@ -35,7 +35,19 @@ export class ProductDetailComponent implements OnInit {
       price: 3000,
       description: 'Nuevo Producto'
     };
-    this.productsService.createProduct(newProduct).subscribe(product => console.log(this.product));
+    this.productsService.createProduct(newProduct).subscribe(product => console.log(product));
+  }
+
+  updateProduct() {
+    const updateProduct: Partial<Product> = {
+      price: 55555,
+      description: 'Edición titulo'
+    };
+    this.productsService.updateProduct(updateProduct, '11').subscribe(product => console.log(product));
+  }
+
+  deleteProduct() {
+    this.productsService.deleteProduct('11').subscribe(resp => console.log(resp));
   }
 
 }

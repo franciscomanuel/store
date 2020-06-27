@@ -15,11 +15,19 @@ export class ProductsService {
     return this.http.get<Product[]>(`${environment.url_api}/products/`);
   }
 
-  getProductById(id): Observable<Product> {
+  getProductById(id: string): Observable<Product> {
     return this.http.get<Product>(`${environment.url_api}/products/${id}`);
   }
 
   createProduct(product: Product): Observable<Product> {
     return this.http.post<Product>(`${environment.url_api}/products`, product);
+  }
+
+  updateProduct(changes: Partial<Product>, id: string): Observable<Product> {
+    return this.http.put<Product>(`${environment.url_api}/products/${id}`, changes);
+  }
+
+  deleteProduct(id: string): Observable<any> {
+    return this.http.delete(`${environment.url_api}/products/${id}`);
   }
 }
